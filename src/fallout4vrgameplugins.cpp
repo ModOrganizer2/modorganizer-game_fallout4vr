@@ -37,7 +37,7 @@ void Fallout4VRGamePlugins::getLoadOrder(QStringList &loadOrder) {
     loadOrder = readLoadOrderList(m_Organizer->pluginList(), loadOrderPath);
   }
   else {
-    loadOrder = readPluginList(m_Organizer->pluginList(), pluginsPath);
+    loadOrder = readPluginList(m_Organizer->pluginList());
   }
 }
 
