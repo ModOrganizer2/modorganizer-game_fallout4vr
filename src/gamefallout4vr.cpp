@@ -155,7 +155,7 @@ QStringList GameFallout4VR::validShortNames() const
 
 QString GameFallout4VR::gameNexusName() const
 {
-  return QString();
+  return "fallout4";
 }
 
 QStringList GameFallout4VR::iniFiles() const
