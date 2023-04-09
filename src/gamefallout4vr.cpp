@@ -1,6 +1,7 @@
 #include "gameFallout4vr.h"
 
 #include "fallout4vrdataarchives.h"
+#include "fallout4vrscriptextender.h"
 #include "fallout4vrunmanagedmods.h"
 #include "fallout4vrmoddatachecker.h"
 #include "fallout4vrmoddatacontent.h"
@@ -37,6 +38,7 @@ bool GameFallout4VR::init(IOrganizer *moInfo)
     return false;
   }
 
+  registerFeature<ScriptExtender>(new Fallout4VRScriptExtender(this));
   registerFeature<DataArchives>(new Fallout4VRDataArchives(myGamesPath()));
   registerFeature<LocalSavegames>(new GamebryoLocalSavegames(myGamesPath(), "fallout4custom.ini"));
   registerFeature<ModDataChecker>(new Fallout4VRModDataChecker(this));
@@ -62,10 +64,11 @@ void GameFallout4VR::detectGame()
 QList<ExecutableInfo> GameFallout4VR::executables() const
 {
   return QList<ExecutableInfo>()
-      << ExecutableInfo("Fallout 4 VR", findInGameFolder(binaryName()))
-      << ExecutableInfo("Creation Kit", findInGameFolder("CreationKit.exe"))
-      << ExecutableInfo("LOOT", QFileInfo(getLootPath())).withArgument("--game=\"Fallout4VR\"")
-         ;
+    << ExecutableInfo("F4SEVR", findInGameFolder(feature<ScriptExtender>()->loaderName()))
+    << ExecutableInfo("Fallout 4 VR", findInGameFolder(binaryName()))
+    << ExecutableInfo("Fallout Launcher", findInGameFolder(getLauncherName()))
+    << ExecutableInfo("Creation Kit", findInGameFolder("CreationKit.exe")).withSteamAppId("1946160")
+    << ExecutableInfo("LOOT", QFileInfo(getLootPath())).withArgument("--game=\"Fallout4VR\"");
 }
 
 QList<ExecutableForcedLoadSetting> GameFallout4VR::executableForcedLoads() const
