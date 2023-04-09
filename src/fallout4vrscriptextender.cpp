@@ -10,7 +10,7 @@ Fallout4VRScriptExtender::Fallout4VRScriptExtender(GameGamebryo const *game) :
 
 QString Fallout4VRScriptExtender::BinaryName() const
 {
-  return "f4se_loader.exe";
+  return "f4sevr_loader.exe";
 }
 
 QString Fallout4VRScriptExtender::PluginPath() const
