@@ -1,3 +1,5 @@
-# Fallout 4 VR plugin for [Mod Organizer 2](https://github.com/LePresidente/modorganizer).
+# Archived repository - Check [modorganizer-game_bethesda](https://github.com/ModOrganizer2/modorganizer-game_bethesda)
 
-Go to [release section](releases) for download and instructions.
+
+ModOrganizer2 plugins for most Bethesda games are now managed in a single repository
+at https://github.com/ModOrganizer2/modorganizer-game_bethesda.
